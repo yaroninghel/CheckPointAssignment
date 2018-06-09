@@ -1,4 +1,4 @@
-package checkpoint.wifi.reputation.enums;
+package checkpoint.wifi.reputation.Enums;
 
 public enum AuthType {
     WPA,

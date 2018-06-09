@@ -1,16 +1,12 @@
-package checkpoint.wifi.reputation.controller;
+package checkpoint.wifi.reputation.Controller;
 
 import checkpoint.wifi.reputation.ApiModels.ConnectingUser;
 import checkpoint.wifi.reputation.Services.NetworksService;
-import checkpoint.wifi.reputation.models.Network;
+import checkpoint.wifi.reputation.Models.Network;
 import checkpoint.wifi.reputation.ApiModels.ReportThroughput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.http.HttpStatus;
-
-import java.util.Collection;
-import java.util.HashMap;
 
 
 @RestController

@@ -1,6 +1,6 @@
 package checkpoint.wifi.reputation.ApiModels;
 
-import checkpoint.wifi.reputation.enums.AuthType;
+import checkpoint.wifi.reputation.Enums.AuthType;
 
 public class ConnectingUser {
     public String device_id;

@@ -2,7 +2,7 @@ package checkpoint.wifi.reputation.Services;
 
 import checkpoint.wifi.reputation.ApiModels.ConnectingUser;
 import checkpoint.wifi.reputation.ApiModels.ReportThroughput;
-import checkpoint.wifi.reputation.models.Network;
+import checkpoint.wifi.reputation.Models.Network;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

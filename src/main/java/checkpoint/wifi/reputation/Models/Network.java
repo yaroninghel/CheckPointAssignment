@@ -1,10 +1,9 @@
-package checkpoint.wifi.reputation.models;
+package checkpoint.wifi.reputation.Models;
 
 
-import checkpoint.wifi.reputation.enums.AuthType;
+import checkpoint.wifi.reputation.Enums.AuthType;
 
 import java.util.ArrayList;
-import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Network {
