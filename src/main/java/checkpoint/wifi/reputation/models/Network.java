@@ -1,36 +1,46 @@
 package checkpoint.wifi.reputation.models;
 
 
+import checkpoint.wifi.reputation.enums.AuthType;
+
 import java.util.ArrayList;
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class network {
+public class Network {
     private String _id;
     private AuthType _authType;
     private float _throughputSum = 0;
     private AtomicLong _throughputReports = new AtomicLong();
-    ArrayList<device> _devices;
+    ArrayList<Device> _devices;
 
-    public network(String id, AuthType authType)
+    public Network(String id, AuthType authType)
     {
         _id = id;
         _authType = authType;
-        _devices = new ArrayList<device>();
+        _devices = new ArrayList<Device>();
     }
 
     public void addDevice(String id)
     {
-        device dev = new device(id);
+        Device dev = new Device(id);
         if (!_devices.contains(dev))
         {
             _devices.add(dev);
         }
     }
 
-    public void reportThroughput(float throughput)
+    public void reportThroughput(String deviceID, float throughput)
     {
         _throughputSum+=throughput;
         _throughputReports.incrementAndGet();
+        Device currentDevice;
+
+        addDevice(deviceID);
+        int ind = _devices.indexOf(new Device(deviceID));
+        currentDevice = _devices.get(ind);
+
+        currentDevice.recordThrouput(throughput);
     }
 
     public String getId()
@@ -45,10 +55,12 @@ public class network {
     public float getAvg_throughput()
     {
         float avg = _throughputSum/_throughputReports.intValue();
+        if (Float.isNaN(avg))
+            avg = 0;
         return avg;
     }
 
-    public ArrayList<device> getDevices() {
+    public ArrayList<Device> getDevices() {
         return _devices;
     }
 }

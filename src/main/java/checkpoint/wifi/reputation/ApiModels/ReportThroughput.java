@@ -1,6 +1,6 @@
-package checkpoint.wifi.reputation.models;
+package checkpoint.wifi.reputation.ApiModels;
 
-public class reportThroughput {
+public class ReportThroughput {
     public String device_id;
     public String network_id;
     public float throughput;

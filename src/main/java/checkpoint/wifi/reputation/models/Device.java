@@ -2,12 +2,14 @@ package checkpoint.wifi.reputation.models;
 
 import java.util.ArrayList;
 
-public class device {
+public class Device {
     private String id;
+    ArrayList<Float> throughputs;
 
-    public device(String str)
+    public Device(String str)
     {
         id = str;
+        throughputs = new ArrayList<Float>();
     }
 
     public String getId()
@@ -15,13 +17,24 @@ public class device {
         return id;
     }
 
+    public void recordThrouput(float throuput)
+    {
+        throughputs.add(throuput);
+    }
+
     @Override
     public boolean equals(Object v) {
         boolean retVal = false;
 
-        if (v instanceof device){
-            device ptr = (device) v;
+        if (v instanceof Device){
+            Device ptr = (Device) v;
             retVal = ptr.id.compareTo(this.id) == 0;
+        }
+        else if (v instanceof String)
+        {
+
+            String ptr = (String) v;
+            retVal = ptr.compareTo(this.id) == 0;
         }
 
         return retVal;
